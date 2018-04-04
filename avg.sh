@@ -1,0 +1,1 @@
+tshark -T fields -E separator=, -E header=n -e frame.time_relative -e ip.src -r filtered.pcapng | awk '{if(n==0) {last=$1;n++} else {print $1-last;last=$1;n++}}' | awk '{ sum += $1; n++ } END { if (n > 0) print sum / n; }'

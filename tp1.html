@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="text-align: justify">
+    <nav class="navbar d-print-block navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand">Introducción a los Sistemas Distribuídos 75.43 - Trabajo Practico 1</span>
+            <span class="navbar-brand pull-right">Agustin Gaillard, 94849</span>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">1. ¿Cuáles fueron los Initial Sequence Numbers?</h5>
+                        <p class="card-text">Los Initial Sequence Numbers fueron:
+                            <ol type="A">
+                                <li>482859528
+                                    <img src="1A.png" class="rounded">
+                                </li>
+                                <li></li>
+                            </ol>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">2. Describa el Three-way handshake, indicando los flags y ACKs</h5>
+                        <p class="card-text">
+                            El mecanismo three-way handshake consiste en:
+                            <ul>
+                                <li>
+                                    <b>SYN</b>: El cliente inicia una conexión activa, mediante el envío de un
+                                    <b>SYN</b> al servidor, junto con un número de secuencia aleatorio
+                                    <b>X</b>.</li>
+                                <li>
+                                    <b>SYN-ACK</b>: El servidor responde al cliente con un
+                                    <b>SYN-ACK</b>. El mismo mensaje contiene información del
+                                    <b>SYN</b> que está siendo confirmado, mediante un flag
+                                    <b>ACK</b> con valor
+                                    <b>X + 1</b>. Además envía un número de secuencia aleatorio
+                                    <b>Y</b> para identificar al paquete.</li>
+                                <li>
+                                    <b>ACK</b>: El cliente envía un
+                                    <b>ACK</b> al servidor confirmando por el flag
+                                    <b>ACK</b> al identificado por
+                                    <b>Y + 1</b>, y establece el número de secuencia con
+                                    <b>X + 1</b>.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-12">
+                <div class="alert alert-info" role="alert">
+                    A lo largo del proyecto, los resultados de
+                    <b>A</b> serán los del mirror cercano; y los de
+                    <b>B</b> los del lejano.
+                </div>
+            </div> -->
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            3. ¿Cuanto demoró el three-way handshake? ¿Cuál es su relación con respecto a la duración de toda la transmisión? Elabore
+                            conclusiones
+                        </h5>
+                        <p class="card-text">Las demoras del three-way handshake fueron:
+                            <ol type="A">
+                                <li>336.422 ms
+                                    <img src="3A.png" class="rounded img-fluid">
+                                </li>
+                                <li></li>
+                            </ol>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">4. Hubo perdidas ¿Si cuantas?</h5>
+                        <p class="card-text">
+                            <ol type="A">
+                                <li>No hubo pérdidas</li>
+                                <li></li>
+                            </ol>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">5. Hubo retransmisiones, ¿Si? ¿Por RTO o Fast Retransmit? ¿Es posible determinar si fue por una causa
+                            o la otra?</h5>
+                        <p class="card-text">
+                            <ol type="A">
+                                <li>Hubo 1 retransmisión y ocurrió por RTO, sin embargo, fue algo particular. En wireshark se puede ver que el frame 2105 alerta que fue una <i>TCP Suspirous Retransmission</i>, lo cual significa que el frame 2104 fue retransmitido porque su correspondiente <b>ACK</b> no llegó a tiempo (RTO), además se puede ver que el frame 2108 es duplicado </li>
+                                <li></li>
+                            </ol>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
