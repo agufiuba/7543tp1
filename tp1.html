@@ -19,10 +19,8 @@
                         <h5 class="card-title">1. ¿Cuáles fueron los Initial Sequence Numbers?</h5>
                         <p class="card-text">Los Initial Sequence Numbers fueron:
                             <ol type="A">
-                                <li>482859528
-                                    <img src="1A.png" class="rounded">
-                                </li>
-                                <li></li>
+                                <li>482859528.</li>
+                                <li>4248055904.</li>
                             </ol>
                         </p>
                     </div>
@@ -77,11 +75,17 @@
                         </h5>
                         <p class="card-text">Las demoras del three-way handshake fueron:
                             <ol type="A">
-                                <li>336.422 ms
-                                    <img src="3A.png" class="rounded img-fluid">
-                                </li>
-                                <li></li>
+                                <li>439.783ms y un total de 5.15s, lo que representa un
+                                    <b>8.54%</b>.</li>
+                                <li>443.365ms y un total de 7.816s, lo que representa un
+                                    <b>5.67%</b>.</li>
                             </ol>
+                        </p>
+                        <p class="card-text">
+                            Las demoras del three-way handshake fueron muy similares. Pero en el resto de la transmisión los tiempos variaron mucho.
+                            Desde el mirror cercano, se tardó 4.71s, mientras que desde el mirror lejano, se tardó 7.37s,
+                            lo cual representa un
+                            <b>56.5%</b> más lento.
                         </p>
                     </div>
                 </div>
@@ -110,9 +114,21 @@
                             o la otra?</h5>
                         <p class="card-text">
                             <ol type="A">
-                                <li>Hubo 1 retransmisión y ocurrió por RTO, sin embargo, fue algo particular. En wireshark se puede ver que el frame 2105 alerta que fue una <i>TCP Suspirous Retransmission</i>, lo cual significa que el frame 2104 fue retransmitido porque su correspondiente <b>ACK</b> no llegó a tiempo (RTO), además se puede ver que el frame 2108 es duplicado </li>
+                                <li>No hubo retransmisiones</li>
                                 <li></li>
                             </ol>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">6. ¿Cuál fue la IW? ¿Con que RFC se ajusta?</h5>
+                        <p class="card-text">
+                            La Initial Window por parte de los servidores fue de 28960.
                         </p>
                     </div>
                 </div>
