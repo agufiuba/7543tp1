@@ -13,211 +13,246 @@
     </nav>
     <div class="container-fluid">
         <div class="row" style="margin-top:10px">
+            <div class="col-6" style="border-right: 3px solid rgba(0, 0, 0, 0.125)">
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">1. ¿Cuáles fueron los Initial Sequence Numbers?</h5>
+                                <p class="card-text">Los Initial Sequence Numbers fueron:
+                                    <ol type="A">
+                                        <li>482859528.</li>
+                                        <li>4248055904.</li>
+                                    </ol>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">2. Describa el Three-way handshake, indicando los flags y ACKs</h5>
+                                <p class="card-text">
+                                    El mecanismo three-way handshake consiste en:
+                                    <ul>
+                                        <li>
+                                            <b>SYN</b>: El cliente inicia una conexión activa, mediante el envío de un
+                                            <b>SYN</b> al servidor, junto con un número de secuencia aleatorio
+                                            <b>X</b>.</li>
+                                        <li>
+                                            <b>SYN-ACK</b>: El servidor responde al cliente con un
+                                            <b>SYN-ACK</b>. El mismo mensaje contiene información del
+                                            <b>SYN</b> que está siendo confirmado, mediante un flag
+                                            <b>ACK</b> con valor
+                                            <b>X + 1</b>. Además envía un número de secuencia aleatorio
+                                            <b>Y</b> para identificar al paquete.</li>
+                                        <li>
+                                            <b>ACK</b>: El cliente envía un
+                                            <b>ACK</b> al servidor confirmando por el flag
+                                            <b>ACK</b> al identificado por
+                                            <b>Y + 1</b>, y establece el número de secuencia con
+                                            <b>X + 1</b>.</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    3. ¿Cuanto demoró el three-way handshake? ¿Cuál es su relación con respecto a la duración de toda la transmisión? Elabore
+                                    conclusiones
+                                </h5>
+                                <p class="card-text">Las demoras del three-way handshake fueron:
+                                    <ol type="A">
+                                        <li>439.783ms y un total de 5.15s, lo que representa un
+                                            <b>8.54%</b>.</li>
+                                        <li>443.365ms y un total de 7.816s, lo que representa un
+                                            <b>5.67%</b>.</li>
+                                    </ol>
+                                </p>
+                                <p class="card-text">
+                                    Las demoras del three-way handshake fueron muy similares. Pero en el resto de la transmisión los tiempos variaron mucho.
+                                    Desde el mirror cercano, se tardó 4.71s, mientras que desde el mirror lejano, se tardó
+                                    7.37s, lo cual representa un
+                                    <b>56.5%</b> más lento.
+                                </p>
+                                <p class="card-text">
+                                    Esto podría deberse a que se esté utilizando una arquitectura de TCP Split, de modo que el three-way handshake con el Frontend
+                                    sea el mismo en ambos casos (parecido de los tiempos) y los Backend difieran en sus ubicaciones
+                                    (diferencias entre los tiempos totales).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">4. Hubo perdidas ¿Si cuantas?</h5>
+                                <p class="card-text">
+                                    <ol type="A">
+                                        <li>No hubo pérdidas</li>
+                                        <li>No hubo pérdidas</li>
+                                    </ol>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">5. Hubo retransmisiones, ¿Si? ¿Por RTO o Fast Retransmit? ¿Es posible determinar si fue por
+                                    una causa o la otra?</h5>
+                                <p class="card-text">
+                                    <ol type="A">
+                                        <li>No hubo retransmisiones</li>
+                                        <li>Hubo 3 retransmisiones de un mismo ACK. Esto se debió a que al cliente llegaron paquetes
+                                            fuera de orden, y se realizaron las retransmisiones para forzar un Fast Retransmit
+                                            en el servidor.</li>
+                                    </ol>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">1. ¿Cuáles fueron los Initial Sequence Numbers?</h5>
-                        <p class="card-text">Los Initial Sequence Numbers fueron:
-                            <ol type="A">
-                                <li>482859528.</li>
-                                <li>4248055904.</li>
-                            </ol>
-                        </p>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">6. ¿Cuál fue la IW? ¿Con qué RFC se ajusta?</h5>
+                                <p class="card-text">
+                                    La Initial Window por parte de los servidores fue de 28960. Tal como dice el enunciado, estas RFC proponen valores que podrían
+                                    ser los más recomendados. Pero también es cierto que los servidores son quienes terminan
+                                    determinando cual IW será la más conveniente para cada caso en particular.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">7. ¿Cuáles son los RTT promedio?</h5>
+                                <p class="card-text">
+                                    <ol type="A">
+                                        <li>4.01578ms</li>
+                                        <li>6.2748ms</li>
+                                    </ol>
+                                </p>
+                                <p class="card-text">
+                                    Para calcular los RTT promedio, se utilizó el siguiente script:
+                                </p>
+                                <p class="card-text" style="text-align: left">
+                                    <code>tshark -T fields -E separator=, -E header=n -e frame.time_relative -e ip.src -r f.pcapng | grep $ip | awk '{if(n==0){last=$1;n++}else{print $1-last;last=$1;n++}}' | awk '{sum+=$1;n++}END{if(n>0)print sum/n}'</code>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">8. ¿Cuál es el throughput máximo de acuerdo con la formula de Mathis? Elija una tasa de pérdidas
+                                    entre 0.00003 y 0.3. Se debe utilizar la misma en ambos flujos</h5>
+                                <p class="card-text">
+                                    Ambos servidores indican que el MSS vale 1440b. Por lo tanto, y tomando un tasa de perdida de valor 0.3, se obtienen los
+                                    siguientes resultados de acuerdo a la ecuación de Mathis:
+                                    <ol type="A">
+                                        <li>801.821</li>
+                                        <li>513.154</li>
+                                    </ol>
+                                </p>
+                                <p class="card-text">
+                                    Se puede ver que el rendimiento del mirror lejano es un
+                                    <b>36%</b> peor que el del cercano.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">9. Ídem anterior, pero considerando la tasa de pérdidas. Hacer un análisis cualitativo.</h5>
+                                <p class="card-text">
+                                    Ambos servidores indican que el MSS vale 1440b. Por lo tanto, y tomando un tasa de pérdida de valor 0.5, se obtienen los
+                                    siguientes resultados de acuerdo a la ecuación de Mathis:
+                                    <ol type="A">
+                                        <li>621.088</li>
+                                        <li>397.487</li>
+                                    </ol>
+                                </p>
+                                <p class="card-text">
+                                    Se puede ver que el rendimiento del mirror lejano es un
+                                    <b>36%</b> peor que el del cercano.
+                                </p>
+                                <p class="card-text">
+                                    Se utilizó la tasa de pérdida 0.5 de acuerdo a la recomendación
+                                    <code>https://www.slac.stanford.edu/comp/net/wan-mon/thru-vs-loss.html</code>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:10px">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">10. ¿Cuánto demoró en descargarse todo el archivo?</h5>
+                                <p class="card-text">
+                                    Entendiendo a "Descargarse el archivo" como la comunicación desde el GET HTTP hasta el Status Code 200, los tiempos fueron:
+                                    <ol type="A">
+                                        <li>4.388s</li>
+                                        <li>6.967s</li>
+                                    </ol>
+                                </p>
+                                <p>Para mas información de tiempos, ver punto 3.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">2. Describa el Three-way handshake, indicando los flags y ACKs</h5>
-                        <p class="card-text">
-                            El mecanismo three-way handshake consiste en:
-                            <ul>
-                                <li>
-                                    <b>SYN</b>: El cliente inicia una conexión activa, mediante el envío de un
-                                    <b>SYN</b> al servidor, junto con un número de secuencia aleatorio
-                                    <b>X</b>.</li>
-                                <li>
-                                    <b>SYN-ACK</b>: El servidor responde al cliente con un
-                                    <b>SYN-ACK</b>. El mismo mensaje contiene información del
-                                    <b>SYN</b> que está siendo confirmado, mediante un flag
-                                    <b>ACK</b> con valor
-                                    <b>X + 1</b>. Además envía un número de secuencia aleatorio
-                                    <b>Y</b> para identificar al paquete.</li>
-                                <li>
-                                    <b>ACK</b>: El cliente envía un
-                                    <b>ACK</b> al servidor confirmando por el flag
-                                    <b>ACK</b> al identificado por
-                                    <b>Y + 1</b>, y establece el número de secuencia con
-                                    <b>X + 1</b>.</li>
-                            </ul>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="col-12">
-                <div class="alert alert-info" role="alert">
-                    A lo largo del proyecto, los resultados de
-                    <b>A</b> serán los del mirror cercano; y los de
-                    <b>B</b> los del lejano.
-                </div>
-            </div> -->
-        </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            3. ¿Cuanto demoró el three-way handshake? ¿Cuál es su relación con respecto a la duración de toda la transmisión? Elabore
-                            conclusiones
-                        </h5>
-                        <p class="card-text">Las demoras del three-way handshake fueron:
-                            <ol type="A">
-                                <li>439.783ms y un total de 5.15s, lo que representa un
-                                    <b>8.54%</b>.</li>
-                                <li>443.365ms y un total de 7.816s, lo que representa un
-                                    <b>5.67%</b>.</li>
-                            </ol>
-                        </p>
-                        <p class="card-text">
-                            Las demoras del three-way handshake fueron muy similares. Pero en el resto de la transmisión los tiempos variaron mucho.
-                            Desde el mirror cercano, se tardó 4.71s, mientras que desde el mirror lejano, se tardó 7.37s,
-                            lo cual representa un
-                            <b>56.5%</b> más lento.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">4. Hubo perdidas ¿Si cuantas?</h5>
-                        <p class="card-text">
-                            <ol type="A">
-                                <li>No hubo pérdidas</li>
-                                <li>No hubo pérdidas</li>
-                            </ol>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">5. Hubo retransmisiones, ¿Si? ¿Por RTO o Fast Retransmit? ¿Es posible determinar si fue por una causa
-                            o la otra?</h5>
-                        <p class="card-text">
-                            <ol type="A">
-                                <li>No hubo retransmisiones</li>
-                                <li>Hubo 3 retransmisiones de un mismo ACK. Esto se debió a que al cliente llegaron paquetes
-                                    fuera de orden, y se realizaron las retransmisiones para forzar un Fast Retransmit en
-                                    el servidor.</li>
-                            </ol>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">6. ¿Cuál fue la IW? ¿Con que RFC se ajusta?</h5>
-                        <p class="card-text">
-                            La Initial Window por parte de los servidores fue de 28960.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">7. ¿Cuáles son los RTT promedio?</h5>
-                        <p class="card-text">
-                            <ol type="A">
-                                <li>4.01578ms</li>
-                                <li>6.2748ms</li>
-                            </ol>
-                        </p>
-                        <p class="card-text">
-                            Para calcular los RTT promedio, se utilizó el siguiente script:
-                        </p>
-                        <p class="card-text" style="text-align: left">
-                            <code>tshark -T fields -E separator=, -E header=n -e frame.time_relative -e ip.src -r f.pcapng | grep $ip | awk '{if(n==0){last=$1;n++}else{print $1-last;last=$1;n++}}' | awk '{sum+=$1;n++}END{if(n>0)print sum/n}'</code>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">8. ¿Cuál es el throughput máximo de acuerdo con la formula de Mathis? Elija una tasa de pérdidas
-                            entre 0.00003 y 0.3. Se debe utilizar la misma en ambos flujos</h5>
-                        <p class="card-text">
-                            Ambos servidores indican que el MSS vale 1440b. Por lo tanto, y tomando un tasa de perdida de valor 0.3, se obtienen los
-                            siguientes resultados de acuerdo a la ecuación de Mathis:
-                            <ol type="A">
-                                <li>801.821</li>
-                                <li>513.154</li>
-                            </ol>
-                        </p>
-                        <p class="card-text">
-                            Se puede ver que el rendimiento del mirror lejano es un
-                            <b>36%</b> peor que el del cercano.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">9. Ídem anterior, pero considerando la tasa de pérdidas. Hacer un análisis cualitativo.</h5>
-                        <p class="card-text">
-                            Ambos servidores indican que el MSS vale 1440b. Por lo tanto, y tomando un tasa de pérdida de valor 0.5, se obtienen los
-                            siguientes resultados de acuerdo a la ecuación de Mathis:
-                            <ol type="A">
-                                <li>621.088</li>
-                                <li>397.487</li>
-                            </ol>
-                        </p>
-                        <p class="card-text">
-                            Se puede ver que el rendimiento del mirror lejano es un
-                            <b>36%</b> peor que el del cercano.
-                        </p>
-                        <p class="card-text">
-                            Se utilizó la tasa de pérdida 0.5 de acuerdo a la recomendación
-                            <code>https://www.slac.stanford.edu/comp/net/wan-mon/thru-vs-loss.html</code>.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin-top:10px">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">10. ¿Cuánto demoró en descargarse todo el archivo?</h5>
-                        <p class="card-text">
-                            Entendiendo a "Descargarse el archivo" como la comunicación desde el GET HTTP hasta el Status Code 200, los tiempos fueron:
-                            <ol type="A">
-                                <li>4.388s</li>
-                                <li>6.967s</li>
-                            </ol>
-                        </p>
-                        <p>Para mas información de tiempos, ver punto 3.</p>
-                    </div>
+        <div class="row" style="margin-top: 30px">
+            <div class="col-12" style="margin-top: 30px">
+                <div class="jumbotron">
+                    <h1 class="display-4">Bonus: Google QUIC</h1>
+                    <p class="lead">Google QUIC es un protocolo de red experimental que opera en la capa de transporte.</p>
+                    <p class="lead">
+                        Está basado en UDP y se estima que tiene mucha menos latencia que TCP. Soporta control de congestión, recuperación de paquetes,
+                        criptografía, y puede recurrir a TCP en caso de tener bloqueado UDP.
+                    </p>
+                    <p class="lead">
+                        Se sabe que Google lo utiliza en su página principal de búsquedas, habiendo mejorado la velocidad de carga en un
+                        <b>3%</b>, lo cual no es mucho pero hay que tener en cuenta que ya tenía muchas medidas de optimización.
+                        También se lo puede ver en YouTube, mejorando el streaming de video en un
+                        <b>30%</b>.
+                    </p>
+                    <p class="lead">
+                        En caso de sniffear una transmisión en UDP se podrían observar todos los flags de UDP propios además de ciertos flags públicos
+                        de QUIC. Es posible que el contenido del frame no sea descifrable por wireshark ya que podría estar
+                        viajando encriptado, y solo el cliente puede desencriptarlo. Además, a diferencia de TCP, las retransmisiones
+                        tienen diferentes ISN, lo que permite saber si un paquete es una retransmisión.
+                    </p>
+                    <p class="lead">
+                        Varios otros datos pueden obtenerse, como por ejemplo, Connection ID, Data Length, Frame, Frame Type, IP Address, Port, entre
+                        otros. La lista completa se puede encontrar en
+                        <code>https://www.wireshark.org/docs/dfref/q/quic.html</code>.
+                    </p>
                 </div>
             </div>
         </div>
