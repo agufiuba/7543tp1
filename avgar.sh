@@ -1,1 +1,1 @@
-tshark -T fields -E separator=, -E header=n -e frame.time_relative -e ip.src -r ar.pcapng | awk '{if(n==0) {last=$1;n++} else {print $1-last;last=$1;n++}}' | awk '{ sum += $1; n++ } END { if (n > 0) print sum / n; }'
+tshark -T fields -E separator=, -E header=n -e frame.time_relative -e ip.src -r ar.pcapng | grep 200\\.236\\. | awk '{if(n==0){last=$1;n++}else{print $1-last;last=$1;n++}}' | awk '{sum+=$1;n++}END{if(n>0)print sum/n}'

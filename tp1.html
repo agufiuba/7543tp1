@@ -99,7 +99,7 @@
                         <p class="card-text">
                             <ol type="A">
                                 <li>No hubo pérdidas</li>
-                                <li></li>
+                                <li>No hubo pérdidas</li>
                             </ol>
                         </p>
                     </div>
@@ -115,7 +115,9 @@
                         <p class="card-text">
                             <ol type="A">
                                 <li>No hubo retransmisiones</li>
-                                <li></li>
+                                <li>Hubo 3 retransmisiones de un mismo ACK. Esto se debió a que al cliente llegaron paquetes
+                                    fuera de orden, y se realizaron las retransmisiones para forzar un Fast Retransmit en
+                                    el servidor.</li>
                             </ol>
                         </p>
                     </div>
@@ -130,6 +132,91 @@
                         <p class="card-text">
                             La Initial Window por parte de los servidores fue de 28960.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">7. ¿Cuáles son los RTT promedio?</h5>
+                        <p class="card-text">
+                            <ol type="A">
+                                <li>4.01578ms</li>
+                                <li>6.2748ms</li>
+                            </ol>
+                        </p>
+                        <p class="card-text">
+                            Para calcular los RTT promedio, se utilizó el siguiente script:
+                        </p>
+                        <p class="card-text" style="text-align: left">
+                            <code>tshark -T fields -E separator=, -E header=n -e frame.time_relative -e ip.src -r f.pcapng | grep $ip | awk '{if(n==0){last=$1;n++}else{print $1-last;last=$1;n++}}' | awk '{sum+=$1;n++}END{if(n>0)print sum/n}'</code>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">8. ¿Cuál es el throughput máximo de acuerdo con la formula de Mathis? Elija una tasa de pérdidas
+                            entre 0.00003 y 0.3. Se debe utilizar la misma en ambos flujos</h5>
+                        <p class="card-text">
+                            Ambos servidores indican que el MSS vale 1440b. Por lo tanto, y tomando un tasa de perdida de valor 0.3, se obtienen los
+                            siguientes resultados de acuerdo a la ecuación de Mathis:
+                            <ol type="A">
+                                <li>801.821</li>
+                                <li>513.154</li>
+                            </ol>
+                        </p>
+                        <p class="card-text">
+                            Se puede ver que el rendimiento del mirror lejano es un
+                            <b>36%</b> peor que el del cercano.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">9. Ídem anterior, pero considerando la tasa de pérdidas. Hacer un análisis cualitativo.</h5>
+                        <p class="card-text">
+                            Ambos servidores indican que el MSS vale 1440b. Por lo tanto, y tomando un tasa de pérdida de valor 0.5, se obtienen los
+                            siguientes resultados de acuerdo a la ecuación de Mathis:
+                            <ol type="A">
+                                <li>621.088</li>
+                                <li>397.487</li>
+                            </ol>
+                        </p>
+                        <p class="card-text">
+                            Se puede ver que el rendimiento del mirror lejano es un
+                            <b>36%</b> peor que el del cercano.
+                        </p>
+                        <p class="card-text">
+                            Se utilizó la tasa de pérdida 0.5 de acuerdo a la recomendación
+                            <code>https://www.slac.stanford.edu/comp/net/wan-mon/thru-vs-loss.html</code>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top:10px">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">10. ¿Cuánto demoró en descargarse todo el archivo?</h5>
+                        <p class="card-text">
+                            Entendiendo a "Descargarse el archivo" como la comunicación desde el GET HTTP hasta el Status Code 200, los tiempos fueron:
+                            <ol type="A">
+                                <li>4.388s</li>
+                                <li>6.967s</li>
+                            </ol>
+                        </p>
+                        <p>Para mas información de tiempos, ver punto 3.</p>
                     </div>
                 </div>
             </div>
